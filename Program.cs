@@ -14,55 +14,31 @@ namespace ACA_Homework_1_2
             }
         }
 
-        //Ayn depqi hamar erb taretivy usern e mutqagrum 
-        static void func(int year)
+        static void PrintLeapYears(int year)
         {
-            if (year % 4 == 0)
+            if (year % 4 != 0)
             {
-                for (int i = 1; i <= 20; i++)
-                {
-                    Console.WriteLine(year);
-                    year += 4;
-                }
+                year += 4 - (year % 4);
             }
-            if (year % 4 == 1)
+            for (int i = 1; i <= 20; i++)
             {
-                year = year + 3;
-                for (int i = 1; i <= 20; i++)
+                if (year % 100 == 0 && year % 400 != 0)
                 {
-                    Console.WriteLine(year);
+                    i--;
                     year += 4;
+                    continue;
                 }
+                Console.WriteLine(year);
+                year += 4;
             }
-
-            if (year % 4 == 2)
-            {
-                year = year + 2;
-                for (int i = 1; i <= 20; i++)
-                {
-                    Console.WriteLine(year);
-                    year += 4;
-                }
-            }
-
-            if (year % 4 == 3)
-            {
-                year = year + 1;
-                for (int i = 1; i <= 20; i++)
-                {
-                    Console.WriteLine(year);
-                    year += 4;
-                }
-            }
-
         }
 
         static void Main(string[] args)
         {
-            f();
-            /*Console.WriteLine("Enter a year please:");
+            //  f();
+            Console.WriteLine("Enter a year please:");
             int year = int.Parse(Console.ReadLine());
-            func(year);*/
+            PrintLeapYears(year);
         }
     }
 }
